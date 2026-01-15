@@ -59,7 +59,7 @@ public class WebSecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/auth/**").permitAll()
+                        auth.requestMatchers("/api/auth/**", "/api/elasticsearch/**").permitAll()
                                 .requestMatchers("/api/task/create-task", "/api/leave-request/change-status").hasRole(ROLE.MANAGER.name())
                                 .anyRequest().authenticated()
                 );

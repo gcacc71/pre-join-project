@@ -25,6 +25,4 @@ public class Department {
     @NotNull
     @Column(name = "code", nullable = false, length = 20)
     private String code;
-
-
 }
